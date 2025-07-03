@@ -6,7 +6,7 @@ This is my first time to use Strapi so I am missed any instructions, Please forg
 https://github.com/ahmediz/hail-frontend-task
 
 **Demo**
-https://github.com/ahmediz/hail-frontend-task
+https://ahmediz.github.io/hail-frontend-task
 
 # Used Technologies
 
