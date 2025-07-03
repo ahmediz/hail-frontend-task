@@ -8,6 +8,9 @@ https://github.com/ahmediz/hail-frontend-task
 **Demo**
 https://ahmediz.github.io/hail-frontend-task
 
+**Strapi Admin**
+https://worthy-love-9e46cd36dc.strapiapp.com/admin/
+
 # Used Technologies
 
 1.  Angular v20
