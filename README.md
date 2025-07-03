@@ -1,5 +1,7 @@
 # Welcome to Hail Front-end Task
 
+This is my first time to use Strapi so I am missed any instructions, Please forgive me. It was an exciting task and I learned Strapi which is great technology (Thank you for that).
+
 **Github Repo**
 https://github.com/ahmediz/hail-frontend-task
 
@@ -28,7 +30,7 @@ https://nodejs.org/en/blog/release/v22.11.0
 
 1.  Inside Strapi folder `npm i`
 2.  Then `npm run develop`
-3.  Inside Angular app `npm i --legacy-peer-deps`
+3.  Inside frontend folder `npm i --legacy-peer-deps`
 4.  Then `ng s`
 
 # Strapi Login Credentials
