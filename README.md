@@ -26,8 +26,10 @@ https://nodejs.org/en/blog/release/v22.11.0
 
 # Instructions
 
-1.  Run Strapi `npm run develop`
-2.  Run Angular app `ng s`
+1.  Inside Strapi folder `npm i`
+2.  Then `npm run develop`
+3.  Inside Angular app `npm i --legacy-peer-deps`
+4.  Then `ng s`
 
 # Strapi Login Credentials
 
