@@ -1,0 +1,93 @@
+<form
+  [formGroup]="form"
+  class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4"
+>
+  <div class="flex flex-col gap-2">
+    <label for="title" class="required">Title</label>
+    <input
+      type="text"
+      id="title"
+      pInputText
+      formControlName="title"
+      placeholder="Enter Title"
+    />
+    @if (form.get('title')?.touched && form.get('title')?.dirty) { @if(
+    form.get('title')?.errors?.['required']) {
+    <p-message severity="error" variant="simple" size="small"
+      >Title is required</p-message
+    >
+    } }
+  </div>
+  <div class="flex flex-col gap-2">
+    <label for="shortSummary" class="required">Short Summary</label>
+    <input
+      type="text"
+      id="shortSummary"
+      pInputText
+      formControlName="shortSummary"
+      placeholder="Enter Short Summary"
+    />
+    @if (form.get('shortSummary')?.touched && form.get('shortSummary')?.dirty) {
+    @if( form.get('shortSummary')?.errors?.['required']) {
+    <p-message severity="error" variant="simple" size="small"
+      >Short Summary is required</p-message
+    >
+    } }
+  </div>
+  <div class="flex flex-col gap-2">
+    <label for="tags" class="required">Tags</label>
+    <p-multiselect
+      [options]="tags"
+      formControlName="tags"
+      placeholder="Select Tags"
+      display="chip"
+      appendTo="body"
+    />
+    @if (form.get('tags')?.touched && form.get('tags')?.dirty) { @if(
+    form.get('tags')?.errors?.['required']) {
+    <p-message severity="error" variant="simple" size="small"
+      >Tags are required</p-message
+    >
+    } }
+  </div>
+
+  <div class="flex flex-col gap-2">
+    <label for="isArchived">&nbsp;</label>
+    <div class="flex items-center">
+      <p-checkbox
+        inputId="isArchived"
+        [binary]="true"
+        formControlName="isArchived"
+      />
+      <label for="isArchived" class="ml-2"> is Archived </label>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-2 col-span-full">
+    <label for="content" class="required">Content</label>
+    <p-editor
+      [style]="{ height: '320px' }"
+      formControlName="content"
+    />
+    @if (form.get('content')?.touched && form.get('content')?.dirty) { @if(
+    form.get('content')?.errors?.['required']) {
+    <p-message severity="error" variant="simple" size="small"
+      >Content is required</p-message
+    >
+    } }
+  </div>
+</form>
+<div class="flex gap-2 justify-end mt-5">
+  <p-button
+    label="Cancel"
+    severity="secondary"
+    (onClick)="ref.close()"
+    [disabled]="interaction.loadingStates()['save']"
+  />
+  <p-button
+    label="Save"
+    (onClick)="save()"
+    [disabled]="form.invalid"
+    [loading]="interaction.loadingStates()['save']"
+  />
+</div>

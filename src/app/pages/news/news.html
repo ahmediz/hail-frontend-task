@@ -1,0 +1,52 @@
+<c-max-width-container>
+  <div class="flex justify-between items-center">
+    <h1 class="text-4xl font-bold">News</h1>
+    <p-button
+      label="Add"
+      icon="pi pi-plus"
+      (onClick)="openAddNewArticleDialog()"
+    />
+  </div>
+
+  <div class="flex gap-2 mt-4">
+    <input
+      type="text"
+      id="search"
+      pInputText
+      [formControl]="search"
+      placeholder="Search by title or content"
+    />
+    <p-select
+      [options]="articleStatuses"
+      [(ngModel)]="selectedArticleStatus"
+      optionLabel="label"
+      optionValue="value"
+      class="w-full md:w-56"
+      (onChange)="onArticleStatusChange($event)"
+    />
+  </div>
+  <div class="mt-4 grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
+    @if (articles()) { @for (article of articles(); track article.documentId) {
+    <c-news-item
+      [article]="article"
+      (onEdit)="openAddNewArticleDialog(article)"
+      (onDelete)="deleteArticle(article)"
+    />
+    } } @else { @for (loading of loadingArray(); track $index) {
+    <div
+      class="bg-bg1 p-4 shadow-lg flex flex-col cursor-pointer"
+    >
+      <p-skeleton height="24px" width="60%" />
+      <p-skeleton height="12px" class="mt-2" width="40%" />
+      <p-skeleton height="12px" class="mt-2" width="20%" />
+    </div>
+    } }
+  </div>
+  <div class="mt-8">
+    <p-paginator
+      (onPageChange)="onPageChange($event)"
+      [rows]="meta()?.pagination?.pageSize"
+      [totalRecords]="meta()?.pagination?.total"
+    />
+  </div>
+</c-max-width-container>

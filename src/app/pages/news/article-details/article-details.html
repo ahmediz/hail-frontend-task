@@ -1,0 +1,23 @@
+<div class="w-full max-w-screen-md mx-auto">
+  @if (article()) {
+  <div class="flex flex-col gap-2">
+    <p-button
+      icon="pi pi-arrow-left"
+      [routerLink]="['/news']"
+      variant="text"
+      size="small"
+    />
+    <h1>{{ article()?.title }}</h1>
+  </div>
+  <time class="text-sm text-gray-500">{{
+    article()?.publishedAt | date : "dd/MM/yyyy hh:mm a"
+  }}</time>
+  <div class="mt-4">
+    <div [innerHTML]="article()?.content | safeHtml"></div>
+  </div>
+  } @else {
+  <p-skeleton height="36px" width="70%" />
+  <p-skeleton height="18px" class="mt-2" width="30%" />
+  <p-skeleton height="200px" class="mt-4" width="100%" />
+  }
+</div>

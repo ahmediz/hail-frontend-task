@@ -1,0 +1,28 @@
+<p-toast />
+<p-confirmdialog />
+<div class="min-h-screen flex flex-col">
+  <header class="py-4 shadow-sm bg-bg1">
+    <c-max-width-container>
+      <div class="flex items-center justify-between">
+        <a [routerLink]="['/']">
+          <img
+            src="https://cdn.prod.website-files.com/6740b990923815a6b00065d5/6740baa3f4245719c711d886_cluster2%20-%20color-01.avif"
+            class="h-[60px]"
+            alt="logo"
+          />
+        </a>
+        <p-button
+          [icon]="settingsStore.isDark() ? 'pi pi-moon' : 'pi pi-sun'"
+          outlined
+          severity="secondary"
+          (onClick)="
+            settingsStore.changeTheme(settingsStore.isDark() ? false : true)
+          "
+        />
+      </div>
+    </c-max-width-container>
+  </header>
+  <main class="flex-1 mt-12">
+    <router-outlet></router-outlet>
+  </main>
+</div>
