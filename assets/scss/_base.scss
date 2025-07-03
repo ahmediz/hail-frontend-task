@@ -1,0 +1,14 @@
+html,
+body {
+  @apply h-full;
+}
+
+body {
+  @apply h-full font-main antialiased bg-bodyBg;
+}
+
+.required {
+  &::after {
+    @apply content-['*'] text-red-500 ms-1;
+  }
+}

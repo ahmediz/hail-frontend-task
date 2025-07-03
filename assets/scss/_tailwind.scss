@@ -1,0 +1,54 @@
+@use "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  h1 {
+    @apply text-4xl font-bold;
+  }
+  h2 {
+    @apply text-3xl font-bold;
+  }
+  h3 {
+    @apply text-2xl font-bold;
+  }
+  h4 {
+    @apply text-xl font-bold;
+  }
+  h5 {
+    @apply text-lg font-bold;
+  }
+  h6 {
+    @apply text-base font-bold;
+  }
+}
+
+@utility container {
+  @apply mx-auto px-4;
+}
+
+@theme {
+  --font-main: "Roboto", "sans-serif";
+  --color-bodyBg: white;
+  --color-bg1: white;
+  --color-bg2: white;
+
+  --color-primary-50: #dffcff;
+  --color-primary-100: #abf8ff;
+  --color-primary-200: #00eefa;
+  --color-primary-300: #00d8e3;
+  --color-primary-400: #00c3cd;
+  --color-primary-500: #00b0b9;
+  --color-primary-600: #008a91;
+  --color-primary-700: #00666c;
+  --color-primary-800: #004549;
+  --color-primary-900: #002629;
+  --color-primary-950: #00191b;
+
+  --shadow-sm: 0 2px 5px #0003;
+  --shadow-lg: 0 2px 18px #00000014;
+}
+@variant dark {
+  --color-bodyBg: #181826;
+  --color-bg1: #212134;
+  --color-bg2: #181826;
+}
