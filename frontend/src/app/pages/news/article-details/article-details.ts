@@ -24,7 +24,7 @@ export class ArticleDetails {
   route = inject(ActivatedRoute);
   id = toSignal(this.route.params.pipe(map((params) => params['id'])));
   articleResource = httpResource<HttpResponse<Article>>(
-    () => `${API_URL}/api/articles/${this.id()}`,
+    () => `${API_URL}/articles/${this.id()}`,
     {
       defaultValue: undefined,
     }
