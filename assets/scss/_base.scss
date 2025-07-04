@@ -12,3 +12,7 @@ body {
     @apply content-['*'] text-red-500 ms-1;
   }
 }
+
+p:empty {
+  @apply mb-3;
+}
