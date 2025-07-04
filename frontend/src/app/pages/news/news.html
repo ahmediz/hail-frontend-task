@@ -25,6 +25,7 @@
       (onChange)="onArticleStatusChange($event)"
     />
   </div>
+
   <div class="mt-4 grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
     @if (articles()) { @for (article of articles(); track article.documentId) {
     <c-news-item
@@ -32,16 +33,23 @@
       (onEdit)="openAddNewArticleDialog(article)"
       (onDelete)="deleteArticle(article)"
     />
-    } } @else { @for (loading of loadingArray(); track $index) {
+    } @empty {
     <div
-      class="bg-bg1 p-4 shadow-lg flex flex-col cursor-pointer"
+      class="text-center text-gray-500 flex flex-col items-center gap-4 pt-4 col-span-full"
     >
+      <i class="pi pi-book text-4xl"></i>
+      <span class="text-lg font-bold">No articles found</span>
+    </div>
+    } } @else { @for (loading of loadingArray(); track $index) {
+    <div class="bg-bg1 p-4 shadow-lg flex flex-col cursor-pointer">
       <p-skeleton height="24px" width="60%" />
       <p-skeleton height="12px" class="mt-2" width="40%" />
       <p-skeleton height="12px" class="mt-2" width="20%" />
     </div>
     } }
   </div>
+  @if (articles()?.length && articles()?.length! >
+  meta()?.pagination?.pageSize!) {
   <div class="mt-8">
     <p-paginator
       (onPageChange)="onPageChange($event)"
@@ -49,4 +57,5 @@
       [totalRecords]="meta()?.pagination?.total"
     />
   </div>
+  }
 </c-max-width-container>

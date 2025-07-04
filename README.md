@@ -36,6 +36,9 @@ https://nodejs.org/en/blog/release/v22.11.0
 3.  Inside frontend folder `npm i --legacy-peer-deps`
 4.  Then `ng s`
 
+# Notes
+Pagination handled also. You can check it if more than 5 articles have been added.
+
 # Strapi Login Credentials
 
 **Email:** ahmed@ahmed.com
