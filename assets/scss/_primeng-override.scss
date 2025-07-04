@@ -2,8 +2,8 @@
   .p-dialog {
     @apply w-full max-w-screen-md bg-bg1;
   }
-  .p-dialog-content {
-    @apply overflow-visible;
+  .p-overlay-mask {
+    @apply px-4;
   }
   .p-select,
   .p-inputtext,
