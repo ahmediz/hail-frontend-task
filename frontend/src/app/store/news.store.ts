@@ -27,7 +27,7 @@ export const NewsStore = signalStore(
   { providedIn: 'root' },
   withState(initialState),
   withMethods((store) => {
-    const apiUrl = `${API_URL}/api/articles`;
+    const apiUrl = `${API_URL}/articles`;
     const http = inject(HttpClient);
 
     return {
@@ -88,7 +88,7 @@ export const NewsStore = signalStore(
       addArticle(article: Article) {
         return firstValueFrom(
           http
-            .post<HttpResponse<Article>>(apiUrl.toString(), {
+            .post<HttpResponse<Article>>(apiUrl, {
               data: article,
             })
             .pipe(
@@ -102,7 +102,7 @@ export const NewsStore = signalStore(
       },
       deleteArticle(id: number) {
         return firstValueFrom(
-          http.delete<HttpResponse<Article>>(`${apiUrl.toString()}/${id}`).pipe(
+          http.delete<HttpResponse<Article>>(`${apiUrl}/${id}`).pipe(
             tap(() => {
               patchState(store, {
                 articles: store.articles()?.filter((a) => a.documentId !== id),

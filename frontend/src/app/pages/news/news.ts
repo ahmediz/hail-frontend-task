@@ -74,13 +74,13 @@ export class News {
           filters: [
             {
               field: 'title',
-              operator: '$contains',
+              operator: '$containsi',
               value: value as string,
               type: 'or',
             },
             {
               field: 'content',
-              operator: '$contains',
+              operator: '$containsi',
               value: value as string,
               type: 'or',
             },
