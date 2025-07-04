@@ -119,6 +119,10 @@ export class News {
       header: article ? `Edit ${article.title}` : 'Add New Article',
       modal: true,
       focusOnShow: false,
+      closable: true,
+      closeOnEscape: true,
+      ariaLabelledBy: 'add-new-article-dialog',
+      closeAriaLabel: 'Close',
       data: {
         article,
       },
