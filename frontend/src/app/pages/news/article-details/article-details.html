@@ -13,7 +13,7 @@
     article()?.publishedAt | date : "dd/MM/yyyy hh:mm a"
   }}</time>
   <div class="mt-4">
-    <div [innerHTML]="article()?.content | safeHtml" class="overflow-wrap-anywhere"></div>
+    <div [innerHTML]="article()?.content | safeHtml" class="wrap-anywhere"></div>
   </div>
   } @else {
   <p-skeleton height="36px" width="70%" />
